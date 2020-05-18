@@ -5,14 +5,27 @@ const buttonTanyaNext = document.querySelector('.button-tanya.button-next');
 const slideTanya = document.querySelector('#slide-tanya');
 const slideJohn = document.querySelector('#slide-john');
 
+function animateSlide (slideOut, slideIn, animateClass){
+    if (slideOut.classList.length > 1) {
+        slideOut.classList.remove(slideOut.classList.item(1));
+    }
+    slideOut.style.display = "none";
+    slideIn.style.display = "flex";
+    slideIn.classList.add(animateClass);
+}
 
 buttonTanyaPrev.addEventListener('click', () => {
-    if (slideTanya.classList.length > 1) {
-        slideTanya.classList.remove(slideTanya.classList.item(1));
-    }
-    slideTanya.classList.add('animate-slide-right-out');
-    setTimeout(() => {slideTanya.style.display = "none"}, 500 );
+    animateSlide(slideTanya, slideJohn, 'animate-right-in');
+}); 
 
-    setTimeout(() => {slideJohn.style.display = "flex"}, 500 );
-    slideJohn.classList.add('animate-slide-right-in');
+buttonTanyaNext.addEventListener('click', () => {
+    animateSlide(slideTanya, slideJohn, 'animate-left-in');
 });
+
+buttonJohnPrev.addEventListener('click',  () => {
+    animateSlide(slideJohn, slideTanya, 'animate-right-in');
+}); 
+
+buttonJohnNext.addEventListener('click', () => {
+    animateSlide(slideJohn, slideTanya, 'animate-left-in');
+}); 
