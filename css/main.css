@@ -6,8 +6,9 @@ body {
 }
 
 .slide-background {
+    margin: auto;
     max-width: 1440px;
-    height: 700px;
+    min-height: 700px;
     background-image: url("../images/pattern-bg.svg"), 
                       url("../images/pattern-curve.svg");
     background-repeat: no-repeat;
@@ -97,4 +98,70 @@ body {
 
 .button-next {
     border-radius: 0 100% 100% 0;
+}
+
+@media screen and (max-width: 1040px) {
+
+    .slide-background {
+        background-position: top, bottom left;
+        background-size: 100%;
+    }
+
+    .slide {
+        flex-direction: column;
+    }
+
+    .text {
+        order: 1;
+        margin: initial;
+        text-align: center;
+        background-position: 50% top;
+    }
+
+    .photo {
+        margin: 80px 50px 0 50px;
+        width: 80%;
+    }
+    
+    .buttons {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+}
+
+@media screen and (max-width: 500px) {
+    .photo {
+        margin-top: -40px;
+    }
+
+    .text {
+        font-size: 16px;
+        padding: 30px 30px;
+    }
+
+    .name {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .text {
+        background-size: 25%;
+    }
+
+    .image-and-buttons {
+        margin-bottom: 25px;
+    }
+
+}
+
+@media screen and (max-width: 376px) {
+    
+    .slide-background {
+        max-height: 812px;
+    }
+  
+    .image-and-buttons {
+        margin-bottom: 40px;
+    }
 }
